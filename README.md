@@ -1,9 +1,13 @@
 # spreadsheetAPI
 Jsonをpostし､指定したスプレッドシートに書き込んだり読み込んだり出来ます｡
+</br>
+</br>
 # インストール
 1. GoogleAppsScriptに保存し､Webアプリとしてデプロイします｡</br>URLは控えておいてください｡</br>
 2. GoogleDriveにフォルダ"spreadsheetApi"を作成します｡
 3. 作成したフォルダに任意のスプレッドシートファイルを保存しておきます
+
+</br>
 
 # 使い方
 デプロイしたURLにJsonでポストします｡
