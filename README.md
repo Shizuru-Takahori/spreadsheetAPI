@@ -12,13 +12,25 @@ Jsonをpostし､指定したスプレッドシートに書き込んだり読み
 2. "command"に"write"を指定します｡
 3. "data"に書き込みたい値を入れます｡
 </br>
-~~~{"fileName" : "spreadsheet1",
+
+```
+{"fileName" : "spreadsheet1",
     "command" : "write",
     "data":[
         {"data1": "value00", "data2": "value01" },
-        {"data1": "value10", "data2": "value11", "data3": "value12"}~~~
+        {"data1": "value10", "data2": "value11", "data3": "value12"}
+```
+        
+        
+        
+
+        
 </br>
 読み込みの場合
 読み込みの場合は"command"に"read"を入れてください｡
-~~~{"fileName" : "spreadsheet1",
-    "command" : "read",}~~~
+</br>
+
+```
+{"fileName" : "spreadsheet1",
+    "command" : "read",}
+```
