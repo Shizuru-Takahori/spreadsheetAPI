@@ -21,11 +21,12 @@ https://qr.ae/pGEVqB</br>
 </br>
 
 ```
-{"fileName" : "spreadsheet1",
+  {"fileName" : "spreadsheet1",
     "command" : "write",
     "data":[
         {"data1": "value00", "data2": "value01" },
-        {"data1": "value10", "data2": "value11", "data3": "value12"}
+        {"data1": "value10"},
+		    {"data2": "value31", "data3": "value32", "data3": "value30"}]}
 ```
         
         
@@ -39,5 +40,5 @@ https://qr.ae/pGEVqB</br>
 
 ```
 {"fileName" : "spreadsheet1",
-    "command" : "read",}
+    "command" : "read"}
 ```
