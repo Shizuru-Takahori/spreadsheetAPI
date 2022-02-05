@@ -41,13 +41,8 @@ function doPost(e){
 
   console.log(payload)
 
-  const ccOutput = ContentService.createTextOutput();
-  ccOutput.setMimeType(ContentService.MimeType.Json)
-  ccOutput.setContent(payload);
-
-  console.log(ccOutput)
-
-  return ccOutput
+  const output = ContentService.createTextOutput(payload).setMimeType(ContentService.MimeType.JSON);
+  return output
   
 
 }
