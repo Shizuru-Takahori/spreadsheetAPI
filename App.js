@@ -13,7 +13,7 @@ function doPost(e){
 
   //シートエラーの処理
   if(url == 'error'){
-    var status = 'fileName error no exist ' + fileName;
+    var status = 'fileName error, no exist this file. fileName :' + fileName;
     var data = GetAllSheets();
   }else{
 
