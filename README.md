@@ -1,5 +1,8 @@
 # spreadsheetAPI
-Jsonをpostし､指定したスプレッドシートに書き込んだり読み込んだり出来ます｡
+Jsonをpostし､指定したスプレッドシートに書き込んだり読み込んだり出来ます｡</br>
+</br>
+詳しい情報はこちらから</br>
+https://qr.ae/pGEVqB</br>
 </br>
 </br>
 # インストール
