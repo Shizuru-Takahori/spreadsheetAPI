@@ -47,6 +47,7 @@ function doPost(e){
 
 }
 
+
 //スプレッドシートのURLを取得する関数
 function GetSheet(fileName){
 
@@ -67,6 +68,7 @@ function GetSheet(fileName){
   return url
     
 }
+
 
 //スプレッドシートの一覧を取得する関数
 function GetAllSheets(){
@@ -93,34 +95,40 @@ function GetAllSheets(){
 
 }
 
+
 //シートに書き込む関数
 function WriteSpreadsheet(json, sheet){
   //jsonを配列に変換
   var data = json.data;
-  var dataLength = 0;
 
-  //dataを二次元配列に変換
+  Logger.log(data)
+  //1行目からヘッダーを取得
+  const keys = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues();
+
+  console.log('ヘッダー: ', keys)
+
+  //データをkey順にソートして二次元配列に変換
   var dataArray = [];
-  for(let i = 0; i<data.length; i++){
-      dataArray[i] = Object.values(data[i]);
-      
-      //データの最大列を取得
-      if (dataLength < dataArray[i].length){
-      var dataLength = dataArray[i].length;
+
+  for(let i = 0 ; i < data.length; i++){
+
+    let individualData = data[i];
+    var tempArray = [];
+
+    for(let key of keys[0]){
+      var value = individualData[key];
+
+      if(value == undefined){
+        var value = '';
       }
-      
+      tempArray.push(value)
+    }
+    dataArray.push(tempArray)
   }
+  
+  console.log('書き込むデータ: ', dataArray)
 
-  //データの最大列に合わせて空データを追加
-  for(let i = 0; i<dataArray.length; i++){
-      if(dataArray[i].length < dataLength){
-          for(let k = dataArray[i].length; k < dataLength; k++){
-              dataArray[i].push("")
-          }
-      }
-  }  
-
-  console.log('データ列の長さ: ', dataLength)
+  console.log('データ列の長さ: ', keys[0].length)
   console.log('データ行の長さ: ', dataArray.length)
 
   //シート全体の最終行を取得
@@ -128,11 +136,12 @@ function WriteSpreadsheet(json, sheet){
   console.log('シートの最終行: ', lastRow)
 
   //書き込み
-  sheet.getRange(lastRow + 1, 1, dataArray.length, dataLength).setValues(dataArray)
+  sheet.getRange(lastRow + 1, 1, dataArray.length, keys[0].length).setValues(dataArray)
 
   return dataArray
 
 }
+
 
 //シートを読み込む関数
 //参考 https://qiita.com/void_vtuber/items/a0c81392ce57b49dbb61
